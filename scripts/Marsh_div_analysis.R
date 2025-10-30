@@ -1,5 +1,8 @@
+# Title: 'Marsh div analysis'
+# Author: 'Dr CG, from SGL thesis scripts'
+# Date last edits: '10/30/30'
 
-# Environmental analysis 
+# Description: This script xxxx
 
 # Libraries
 library(ggplot2)
@@ -10,12 +13,6 @@ library(dplyr)
 #library(nlme)
 #library(gridExtra)
 
-
-
-PATH1= "/Users/cc349/Documents/CGLab/Projects/Marshes/Analysis_marsh" # replace with your location here
-setwd(PATH1)
-getwd()
-
 # Plot themes
 ## With legend
 Theme=theme_classic(base_size=11, base_family="Helvetica") +
@@ -25,6 +22,7 @@ Theme2=Theme+ theme(legend.position="none") + theme(panel.border=element_rect(fi
 
 
 # load species tables
+setwd('..') # set writing directory to script location and then go one folder up
 ASVtable=read.table('phyloseq_outputs/ASVtable_Marsh12021-07-20.txt', header=TRUE)
   ASVtable2=t(ASVtable)
   ASVtable3=ASVtable2[-c(1:23),]
@@ -37,9 +35,9 @@ metatable=read.table('phyloseq_outputs/METAtable_Marsh12021-07-20.txt', header=T
 metatable2$sampleID=metatable2$X.SampleID
 
 # metadata tables
-meta.table=read.csv('inputs_data/Metadata_marshstudy.csv', header=TRUE)
+meta.table=read.csv('input_data/Metadata_marshstudy.csv', header=TRUE)
 meta.table$sampleID=meta.table$SampleID
-env.table=read.csv('inputs_data/Envdata_marshstudy.csv', header=TRUE)
+env.table=read.csv('input_data/Envdata_marshstudy.csv', header=TRUE)
     env.table2=env.table[-which(duplicated(env.table$sampleID)),]
 
 # merge env, meta:
