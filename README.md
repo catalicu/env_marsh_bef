@@ -3,6 +3,8 @@ Analyses for: Environmental effects on constructed wetland microbial diversity a
 
 
 # Scripts
+Marsh_environment.R: environmental data processing, check for environmental correlations, and generate summary data tables that will serve follow up analyses. This script produces plots for Figure S0 in the supplementary material and the corresponding plots. 
+Diversity.R: Generate diversity metrics and generate summary data tables that will serve follow up analyses. 
 
 # Data tables
 Organized in two folders depending on whether they were generated directly (Input data) or whether they were obtained from sequence data processed through dada2 and phyloseq as described in the manuscript main text.

@@ -65,3 +65,31 @@ Div.summary
 ggplot(Div.summary, aes(Sample_Location, meanR)) + geom_point(size=3, color='black', shape=21, aes(fill=Date_sampled))+ Theme 
 
 ggplot(Div.summary, aes(Date_sampled, meanR)) + geom_point(size=3, color='black', shape=21, aes(fill=Sample_Location))+  Theme 
+
+
+## from Marsh_environment.R
+# remove if redundant
+# Add Univariate diversity measures
+## Calculate diverstiy
+richness=specnumber(ASVtable3, MARGIN=1)
+shannon=diversity(ASVtable3, index='shannon', MARGIN=1)
+simpson=diversity(ASVtable3, index='simpson', MARGIN=1)
+evenness=shannon/log(richness)
+
+## Merge original metadata and univariate diversity measures
+meta.data=metatable2[which(metatable2[,1]%in%rownames(ASVtable3)),]
+meta.div=data.frame(meta.data, richness, shannon, simpson, evenness)
+meta.div2=meta.div[-which(meta.div$type=='sludge'),]
+
+# summary
+Div.summary=ddply(meta.div2, .(Sample_Location, Date_sampled), summarize, count=length(richness), meanR=mean(richness), sdR=sd(richness), meanShann=mean(shannon), sdShan=sd(shannon), meanSimp=mean(simpson), sdSimp=sd(simpson), meanE=mean(evenness), sdE=sd(evenness))
+Div.summary
+
+## Add env:
+meta1=summary_table[which(summary_table$sampleID  %in%  meta.div2$sampleID),]
+meta2=left_join(meta1, meta.div2, by=c('Location', 'Date'))
+
+### saved version - with checked pond names
+env.summary.table=read.csv('input_data/TableDeltaNH3_Div.summary.211.csv', header=TRUE)
+env.summary1=env.summary.table[,-1]
+dim(env.summary1)
