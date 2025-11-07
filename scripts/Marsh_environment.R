@@ -4,7 +4,9 @@
 
 # Description: This script processes data tables to facilitate further analyses.
 # It generates the following data tables:
-# *
+# *env_table_processed.txt
+# *env_table_summary_date_location.txt
+# *env_table_summary_date.txt
 
 
 # Libraries

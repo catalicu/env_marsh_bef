@@ -3,8 +3,9 @@ Analyses for: Environmental effects on constructed wetland microbial diversity a
 
 
 # Scripts
-Marsh_environment.R: environmental data processing, check for environmental correlations, and generate summary data tables that will serve follow up analyses. This script produces plots for Figure S0 in the supplementary material and the corresponding plots. 
-Diversity.R: Generate diversity metrics and generate summary data tables that will serve follow up analyses. 
+(1) Marsh_environment.R: environmental data processing, check for environmental correlations, and generate summary data tables that will serve follow up analyses. This script produces plots for Figure S0 in the supplementary material and the corresponding plots. 
+(2) Marsh_div_analyses.R: Generate diversity metrics and generate summary data tables that will serve follow up analyses. 
+(3) Fig3_Marsh_delta_ammonia.R: Generates Fig3 and explores the effect of Season and location on delta ammonia. Input data includes the diversity table and the function table generated with scripts Marsh div analysis and Marsh environment (1 and 2). 
 
 # Data tables
 Organized in two folders depending on whether they were generated directly (Input data) or whether they were obtained from sequence data processed through dada2 and phyloseq as described in the manuscript main text.

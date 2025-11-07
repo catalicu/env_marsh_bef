@@ -1,9 +1,10 @@
-# Title: Marsh main BEF analysis
+# Title: Marsh delta ammonia
 # Author: 'Dr CG, from SGL thesis scripts'
-# Date last edits: '10/30/25'
+# Date last edits: '11/05/25'
 
-# Description: This script generates the main BEF plot featured in Fig3. 
-# it also produces the statistical analysis for the relationship
+# Description: This script generates Fig3, featuring the relationship between
+# delta ammonia and location, season.
+# This script also produces the statistical analysis for the relationships.
 
 # Libraries
 library(ggplot2)
